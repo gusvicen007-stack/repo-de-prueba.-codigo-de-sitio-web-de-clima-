@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clima · 7Timer</title>
+  <link rel="stylesheet" href="css/master.css" />
+</head>
+
+<body class="theme-aurora"></body>
+  <!-- Fondo base (gradientes) -->
+  <div class="bg" aria-hidden="true"></div>
+
+  <!-- Fondo dinámico por ciudad (cambia por JS) -->
+  <div class="bg-photo" id="bgPhoto" aria-hidden="true"></div>
+
+  <!-- Splash inicial con Tierra -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-card">
+      <div class="splash-badge">🌍</div>
+      <h2>Explore European Weather forecast</h2>
+
+      <!-- ✅ Botón para salir del splash -->
+      <button type="button" id="btnStart" class="splash-btn">Start</button>
+    </div>
+  </div>
+
+  <!-- ✅ APP (lo que se muestra después del splash) -->
+  <main class="page" id="app">
+    <!-- HERO (buscador centrado) -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-head">
+          <div class="logo" aria-hidden="true">☁️</div>
+          <div>
+            <h1>Weather Forecast</h1>
+            <p class="sub">
+              Search for a city (or country/city) and I show you the weather for 7 days.
+            </p>
+          </div>
+        </div>
+
+        <form id="searchForm" class="search" autocomplete="off">
+          <div class="field">
+            <label for="cityInput">City</label>
+            <input
+              id="cityInput"
+              name="city"
+              type="text"
+              placeholder="Ej. Paris, London, Madrid..."
+              spellcheck="false"
+              aria-describedby="hint"
+            />
+            <div id="hint" class="hint">Tip: write and choose a suggestion.</div>
+
+            <!-- Autocomplete -->
+            <div id="suggestions" class="suggestions" role="listbox" aria-label="Sugerencias"></div>
+          </div>
+
+          <button id="btnSearch" type="submit" class="btn">
+            Buscar
+          </button>
+        </form>
+
+        <div class="hero-foot">
+          <div class="mini-note">Temperature in °C</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS (justo debajo) -->
+    <section id="results" class="results">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 id="placeTitle">search for a city</h2>
+            <p id="metaLine" class="meta">—</p>
+          </div>
+        </div>
+
+        <div id="errorBox" class="error" hidden></div>
+
+        <div id="today" class="today" hidden></div>
+
+        <h3 id="forecastTitle" class="section-title" hidden>Next Days</h3>
+        <div id="grid" class="grid" hidden></div>
+
+        <footer class="foot">
+          <p>Fuente: <b>7Timer</b> · Producto <b>civillight</b>.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
